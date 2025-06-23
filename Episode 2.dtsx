@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/21/2025 5:18:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-JVTGH4OP"
+  DTS:CreatorName="LAPTOP-JVTGH4OP\Ajay"
+  DTS:DTSID="{0FF2CDB5-4427-47B1-AA48-4DDBBEDAA2C0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Episode 2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{83880CAA-AFBC-446F-965A-0318442336A1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
+      DTS:CreationName="CDS (KingswaySoft)"
+      DTS:DTSID="{89B66045-5AB1-4EFF-B40B-7811BC2947A9}"
+      DTS:ObjectName="Common Data Service (CDS) Connection Manager">
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=WebAPI;UserName=vijaydwivedi@cloudbi231.onmicrosoft.com;Domain=;ServerUrl=https://org305696b4.crm8.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=InteractiveLogin;AuthorizationServerUrl=;ServiceResource=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False;TimezoneConversionEngine=Auto"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4B8A1ECE-F34F-48AA-968E-E86AA09446F9}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Ajay\OneDrive\Documents\SSIS Demo\Contact.csv.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="72"
+              DTS:TextQualified="True"
+              DTS:ObjectName="accountid"
+              DTS:DTSID="{2B7AAE95-DADA-4057-A0D9-8468F715C3CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="firstname"
+              DTS:DTSID="{45ACC9DC-4F87-4D21-9842-90946AEC458C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lastname"
+              DTS:DTSID="{49FAD60A-9518-478E-B2AA-B19B637612CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="emailaddress1"
+              DTS:DTSID="{E4716FF4-11B7-48B9-BA88-C4B20873A227}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contact_Extraction"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0D4D338A-DA89-437F-8C20-A88FAF33F2CA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contact_Extraction"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Contact_Extraction\CDS Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2023 KingswaySoft Inc."
+              description="Extract data from CDS, PowerApps, Microsoft Dynamics 365 CE."
+              name="CDS Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping="logical" version="1.0"&gt;
+  &lt;entity name="contact"&gt;
+    &lt;attribute name="firstname" /&gt;
+    &lt;attribute name="lastname" /&gt;
+    &lt;attribute name="emailaddress1" /&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CdsSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Contact_Extraction\CDS Source.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[firstname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[firstname]"
+                      length="50"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[firstname]"
+                      name="firstname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[lastname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[lastname]"
+                      length="50"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[lastname]"
+                      name="lastname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[emailaddress1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[emailaddress1]"
+                      length="100"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[emailaddress1]"
+                      name="emailaddress1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[contactid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[contactid]"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[contactid]"
+                      name="contactid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[emailaddress1]"
+                      dataType="wstr"
+                      length="100"
+                      name="emailaddress1" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[firstname]"
+                      dataType="wstr"
+                      length="50"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[lastname]"
+                      dataType="wstr"
+                      length="50"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].ExternalColumns[contactid]"
+                      dataType="guid"
+                      name="contactid" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Contact_Extraction\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="16393"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Contact_Extraction\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].Columns[firstname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[firstname]"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].Columns[lastname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[lastname]"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].Columns[emailaddress1]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="emailaddress1"
+                      externalMetadataColumnId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[emailaddress1]"
+                      lineageId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output].Columns[emailaddress1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[accountid]"
+                      dataType="guid"
+                      name="accountid" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[firstname]"
+                      dataType="wstr"
+                      length="50"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[lastname]"
+                      dataType="wstr"
+                      length="50"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[emailaddress1]"
+                      dataType="wstr"
+                      length="100"
+                      name="emailaddress1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Contact_Extraction.Paths[Primary Output]"
+              endId="Package\Contact_Extraction\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Primary Output"
+              startId="Package\Contact_Extraction\CDS Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Contact_Extraction"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contact_Extraction">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.333333333334,42.6666666666667"
+          Id="Package\Contact_Extraction\CDS Source"
+          TopLeft="35.5,35.5" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\Contact_Extraction\Flat File Destination"
+          TopLeft="239.999989271164,130.684209091429" />
+        <EdgeLayout
+          Id="Package\Contact_Extraction.Paths[Primary Output]"
+          TopLeft="105.166666666667,78.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="221.499989271164,52.5175424247623"
+              Start="0,0"
+              End="221.499989271164,45.0175424247623">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2587712123812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2587712123812"
+                    Point2="0,26.2587712123812"
+                    Point3="4,26.2587712123812" />
+                  <mssgle:LineSegment
+                    End="217.499989271164,26.2587712123812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="217.499989271164,26.2587712123812"
+                    Point2="221.499989271164,26.2587712123812"
+                    Point3="221.499989271164,30.2587712123812" />
+                  <mssgle:LineSegment
+                    End="221.499989271164,45.0175424247623" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
