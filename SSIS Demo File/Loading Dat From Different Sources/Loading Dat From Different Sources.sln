@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Loading Dat From Different Sources", "Loading Dat From Different Sources.dtproj", "{4A613E6E-C141-C670-7ABF-B7B6AB929B71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A613E6E-C141-C670-7ABF-B7B6AB929B71}.Development|Default.ActiveCfg = Development
+		{4A613E6E-C141-C670-7ABF-B7B6AB929B71}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E48831DE-9B91-46DE-8BC2-A7BA5B9BB64E}
+	EndGlobalSection
+EndGlobal
