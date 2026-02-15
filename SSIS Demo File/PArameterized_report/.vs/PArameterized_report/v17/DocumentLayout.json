@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C611C17D-00E5-CFEC-F5F2-B31BD040446F}|PArameterized_report.rptproj|C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{C611C17D-00E5-CFEC-F5F2-B31BD040446F}|PArameterized_report.rptproj|solutionrelative:Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C611C17D-00E5-CFEC-F5F2-B31BD040446F}|PArameterized_report.rptproj|C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\OrderbyCity.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{C611C17D-00E5-CFEC-F5F2-B31BD040446F}|PArameterized_report.rptproj|solutionrelative:OrderbyCity.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Report1.rdl [Design]",
+              "DocumentMoniker": "C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\Report1.rdl",
+              "RelativeDocumentMoniker": "Report1.rdl",
+              "ToolTip": "C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\Report1.rdl [Design]",
+              "RelativeToolTip": "Report1.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-03T20:32:13.299Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderbyCity.rdl [Design]",
+              "DocumentMoniker": "C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\OrderbyCity.rdl",
+              "RelativeDocumentMoniker": "OrderbyCity.rdl",
+              "ToolTip": "C:\\Cloud BI Academy\\Cloud-BI-Academy\\SSIS Demo File\\PArameterized_report\\OrderbyCity.rdl [Design]",
+              "RelativeToolTip": "OrderbyCity.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-03T19:49:32.568Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

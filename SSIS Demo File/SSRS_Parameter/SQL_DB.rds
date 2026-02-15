@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="SQL_DB">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=LAPTOP-JVTGH4OP\SQLEXPRESS;Initial Catalog="Cloud BI Academy"</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>1e59563d-382c-4829-bb3f-97bcedd22c3d</DataSourceID>
+</RptDataSource>
